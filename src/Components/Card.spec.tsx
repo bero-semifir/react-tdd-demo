@@ -60,5 +60,17 @@ describe("Card Component", () => {
     expect(cardBodyElement).toBeInTheDocument();
     expect(cardBodyElement?.textContent).toBe(cardDummy.body);
   });
+  
+  test("Le footer est affiché dans la partie footer", () => {
+    // Rendu du composant dans le container ⚠ il faut lui donner un objet pour le container
+    render(<Card title="" body="" footer={cardDummy.footer} />, { container });
+
+    // Récup du noeud DOM
+    const cardFooterElement = container.querySelector('.card-footer');
+
+    // test
+    expect(cardFooterElement).toBeInTheDocument();
+    expect(cardFooterElement?.textContent).toBe(cardDummy.footer);
+  });
 
 });
