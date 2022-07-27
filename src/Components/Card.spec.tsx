@@ -73,4 +73,12 @@ describe("Card Component", () => {
     expect(cardFooterElement?.textContent).toBe(cardDummy.footer);
   });
 
+  test("Le footer ne doit pas être présent quand je ne fournis pas la prop footer", ()=>{
+    render(<Card title="" body="" />, { container });
+
+    const cardFooterElement = container.querySelector('.card-footer');
+    // .not permet d'inverser l'assertion du test
+    expect(cardFooterElement).not.toBeInTheDocument();
+  })
+
 });
