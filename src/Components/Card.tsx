@@ -5,6 +5,7 @@ const Card = ({ title, body, footer, buttonLabel, handleClick }: CardProps) => {
     <div>
       <div className="card-title">{title}</div>
       <div className="card-body">{body}</div>
+      <div className="card-footer">{footer}</div>
     </div>
   );
 };
