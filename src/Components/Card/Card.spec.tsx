@@ -129,4 +129,17 @@ describe("Card Component", () => {
     expect(handleClick).toHaveBeenCalled();
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
+
+  test("Le champ input doit changer de valeur", ()=>{
+    // mock (ou spy) de la fonction passé du composant
+    // il va enregistrer le nombre de fois ou il est appelé
+
+    render(<Card title="" body="" />, {container})
+
+    const inputElement = container.querySelector('input');
+
+    fireEvent.change(inputElement!, {target: { value: "Poulet"}})
+
+    expect(inputElement?.value).toBe('Poulet')
+  })
 });

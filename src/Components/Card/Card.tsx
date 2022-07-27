@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { CardProps } from "./Card.type";
+import './Card.css';
 
 const Card = ({ title, body, footer, buttonLabel, handleClick }: CardProps) => {
+
+  const [champ, setChamp] = useState<string | undefined>(undefined)
+
   return (
-    <div>
+    <div className="card">
       <div className="card-title">{title}</div>
       <div className="card-body">{body}</div>
       {
@@ -13,6 +18,7 @@ const Card = ({ title, body, footer, buttonLabel, handleClick }: CardProps) => {
         (buttonLabel && handleClick) &&
         <button type="button" onClick={()=>handleClick()}>{buttonLabel}</button>
       }
+      <input type="text" defaultValue={champ} onChange={({target})=>{setChamp(target.value)}} />
     </div>
   );
 };
