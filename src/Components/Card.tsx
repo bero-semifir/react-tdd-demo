@@ -9,6 +9,10 @@ const Card = ({ title, body, footer, buttonLabel, handleClick }: CardProps) => {
         // rendu conditionnel en React
         footer && <div className="card-footer">{footer}</div>
       }
+      {
+        (buttonLabel && handleClick) &&
+        <button type="button" onClick={()=>handleClick()}>{buttonLabel}</button>
+      }
     </div>
   );
 };
