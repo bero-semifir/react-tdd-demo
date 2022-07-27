@@ -48,4 +48,17 @@ describe("Card Component", () => {
     expect(cardTitleElement).toBeInTheDocument();
     expect(cardTitleElement?.textContent).toBe(cardDummy.title);
   });
+  
+  test("Le body est affiché dans la partie body", () => {
+    // Rendu du composant dans le container ⚠ il faut lui donner un objet pour le container
+    render(<Card title="" body={cardDummy.body} />, { container });
+
+    // Récup du noeud DOM
+    const cardBodyElement = container.querySelector('.card-body');
+
+    // test
+    expect(cardBodyElement).toBeInTheDocument();
+    expect(cardBodyElement?.textContent).toBe(cardDummy.body);
+  });
+
 });
